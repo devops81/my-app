@@ -1,6 +1,6 @@
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/devops81/DevOps-Demo.git'
+     git 'https://github.com/devops81/my-app.git'
    }
    stage('Compile-Package'){
       // Get maven home path
