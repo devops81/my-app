@@ -32,7 +32,7 @@ node{
      emailext body: 'Sending build status mail', subject: 'Build Status', to: 'devops81@gmail.com'
    }
    stage ('slack Notification') {
-slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#jenkinsnotification', color: 'good', message: 'started ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)', teamDomain: 'devops81', tokenCredentialId: 'slack-demo'
+slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#jenkinsnotification', color: 'good', message: 'Welcome to Jenkins , Slack', teamDomain: 'devops81', tokenCredentialId: 'slack-demo'
    }      
   
 }
