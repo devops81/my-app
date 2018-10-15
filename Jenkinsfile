@@ -1,11 +1,12 @@
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/devops81/my-app'
+     git 'https://github.com/devops81/DevOps-Demo.git'
    }
    stage('Compile-Package'){
       // Get maven home path
       def mvnHome =  tool name: 'Maven3', type: 'maven'   
-      sh "${mvnHome}/bin/mvn package"
+
+      sh "${mvnHome}/bin/mvn clean install"
    }
    stage('SonarQube Analysis') {
       def mvnHome =  tool name: 'Maven3', type: 'maven'
