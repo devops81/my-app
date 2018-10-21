@@ -1,25 +1,6 @@
-node{
-   stage('SCM Checkout'){
-     git 'https://github.com/devops81/my-app.git'
-   }
-   stage('Compile-Package'){
-      // Get maven home path
-      def mvnHome =  tool name: 'Maven3', type: 'maven'   
+node {
+	stage('SCM CHECKOUT') {
+git url: 'https://github.com/devops81/my-app.git',branch: 'DokcerExample')
 
-      sh "${mvnHome}/bin/mvn clean install"
-   }
-   stage('SonarQube Analysis') {
-      def mvnHome =  tool name: 'Maven3', type: 'maven'
-      withSonarQubeEnv('sonarqube') {
-         sh "${mvnHome}/bin/mvn sonar:sonar"
-      }
-   }
-  
-   stage('Email Notification'){
-     emailext body: 'Sending build status mail', subject: 'Build Status', to: 'devops81@gmail.com'
-   }
-   stage ('slack Notification') {
-slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#jenkinsnotification', color: 'good', message: 'Welcome to Jenkins , Slack', teamDomain: 'devops81', tokenCredentialId: 'slack-demo'
-   }      
-  
+}
 }
