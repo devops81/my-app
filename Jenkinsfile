@@ -14,7 +14,7 @@ stage ('Build Dokcer Image') {
 sh 'docker build -t devops81/my-app:2.0.0 .'
 }
 	stage('Push Dokcer Image') {
-		withCredentials([string(CredentialsId: 'docker-pwd',variable: 'dockerHubPwd')]) {
+		withCredentials([string(credentialsId: 'docker-credv', variable: 'dockerHubPwd')]) {
 			sh "docker login -u devops81 -p ${dockerHubPwd}"
 		}	
 		sh 'docker push devops81/my-app:2.0.0'
