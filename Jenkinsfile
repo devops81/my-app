@@ -4,7 +4,9 @@ git (url: 'https://github.com/devops81/my-app.git')
 
 }
 stage ('MVN Package') {
-sh 'mvn clean package'
+	def mvnHome = tool name: 'maven3', type: 'maven'
+	def mvnCMD = "${mvnHome}/bin/mvn"
+	sh "${mvnCMD} clean package"
 }
 
 }
