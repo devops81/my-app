@@ -8,5 +8,10 @@ stage ('MVN Package') {
 	def mvnCMD = "${mvnHome}/bin/mvn"
 	sh "${mvnCMD} clean package"
 }
+	
+stage ('Build Dokcer Image') {
+
+sh 'docker build -t devops81/my-app:2.0.0 .'
+}
 
 }
