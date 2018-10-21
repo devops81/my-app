@@ -24,5 +24,6 @@ sh 'docker build -t devops81/my-app:2.0.1 .'
 		sshagent(['dev-server']) {
 			sh "ssh -o StrictHostKeyChecking=no centos@18.220.201.246 ${dockerRun}"
 }
+	}
 
 }
