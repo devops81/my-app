@@ -23,6 +23,6 @@ sh 'docker build -t devops81/my-app:2.0.1 .'
 	dockerRun='docker run -p 8080:8080 -d --name my-app devops81/my-app:2.0.1'
 		
 }
-	}
+	
 
 }
