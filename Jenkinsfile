@@ -20,7 +20,7 @@ sh 'docker build -t devops81/my-app:2.0.1 .'
 		sh 'docker push devops81/my-app:2.0.1'
 	}
 	stage('Run the container on server') {
-	dockerRun='docker run -p 8080:8080 -d --name my-app devops81/my-app:2.0.1'
+	sh 'docker run -p 8080:8080 -d --name my-app devops81/my-app:2.0.1'
 		
 }
 	
