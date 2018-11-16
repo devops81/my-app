@@ -21,6 +21,6 @@ sh 'docker push -t devops81/my-app:2.0.0'
 
 stage('Run container on dev server')
 {
-sh 'docker run -p 8080:8080 -d -name my-app kammana/my-app:2.0.0'
+sh 'docker run -p 7070:8080 -d -name my-app kammana/my-app:2.0.0'
 }
 }
