@@ -1,26 +1,25 @@
-node {
-	stage('SCM CHECKOUT') {
-git (url: 'https://github.com/devops81/my-app.git')
+node{
+   stage('SCM Checkout'){
+     git 'https://github.com/javahometech/my-app'
+   }
+   stage('Compile-Package'){
+      // Get maven home path
+      def mvnHome =  tool name: 'maven-3', type: 'maven'   
+      sh "${mvnHome}/bin/mvn package"
+   }
+   stage('Email Notification'){
+      mail bcc: '', body: '''Hi Welcome to jenkins email alerts
+      Thanks
+      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'hari.kammana@gmail.com'
+   }
+   stage('Slack Notification'){
+       slackSend baseUrl: 'https://hooks.slack.com/services/',
+       channel: '#jenkins-pipeline-demo',
+       color: 'good', 
+       message: 'Welcome to Jenkins, Slack!', 
+       teamDomain: 'javahomecloud',
+       tokenCredentialId: 'slack-demo'
+   }
+}
 
-}
-stage ('MVN Package') {
-	def mvnHome = tool name: 'MVN3', type: 'maven'
-	def mvnCMD = "${mvnHome}/bin/mvn"
-	sh "${mvnCMD} clean package"
-}
-	
-stage ('Build Dokcer Image') {
 
-sh 'docker build -t devops81/my-app:2.0.0 .'
-}
-
-stage('Build Docker Image') {
-sh 'docker login -u devops81 -p Qw32k12345'
-sh 'docker push -t devops81/my-app:2.0.0'
-}
-
-stage('Run container on dev server')
-{
-sh 'docker run -p 7070:8080 -d -name my-app kammana/my-app:2.0.0'
-}
-}
