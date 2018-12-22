@@ -1,1 +1,16 @@
 
+node 
+{
+
+stage('SCM Checkout')
+          {
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
+          doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
+          userRemoteConfigs: [[url: 'https://github.com/devops81/my-app.git']]])
+          }
+          
+stage('Build the MVN project')
+{
+def mvnHome = tool name: 'MVN3', type: 'maven'
+sh "${mvnHome}/bin/mvn package"
+}
