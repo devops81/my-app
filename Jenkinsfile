@@ -13,9 +13,7 @@ def mvnHome= tool name: 'MVN3', type: 'maven'
 sh "${mvnHome}/bin/mvn package"
 }
 
-stage('email notification') {
-emailext body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: 'devops81@gmail.com'
-}
+
 
 stage('Slack Notification') {
 
