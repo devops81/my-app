@@ -13,9 +13,12 @@ sh "${mvnCMD} clean package"
 }
 stage('Build docker image')
 {
-sudo sh 'docker build -t devops81/my-app:2.0.1 .'
+sh 'sudo docker build -t devops81/my-app:2.0.1 .'
 }
-
+stage('Docker Push Image') {
+sh 'sudo docker login -u devops81 -p Qw32k12345'
+sh 'sudo docker push devops81/my-app:2.0.0'
+}
 }
 
 
