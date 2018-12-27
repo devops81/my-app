@@ -16,7 +16,7 @@ stage('Build docker image')
 sudo sh 'docker build -t devops81/my-app:2.0.0 .'
 }
 stage('Docker Push Image') {
-sudo sh 'docker login -U devops81 -p Qw32k12345'
+sudo sh 'docker login -u devops81 -p Qw32k12345'
 sudo sh 'docker push devops81/my-app:2.0.0'
 }
 }
