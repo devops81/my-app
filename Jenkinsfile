@@ -9,8 +9,10 @@ stage('Compile the SourceCode')
 {
 def mvnHome = tool name: 'MVN3', type: 'maven'
 def mvnCMD="${mvnHome}/bin/mvn"
-sh "cd /var/lib/jenkins/workspace/Docker Job/examples/feed-combiner-java8-webapp"
-sh "${mvnCMD} clean install"
+  dir("/var/lib/jenkins/workspace/Docker Job/examples/feed-combiner-java8-webapp") {
+    sh "${mvnCMD} clean install"
+}
+
 }
 stage('Build docker image')
 {
