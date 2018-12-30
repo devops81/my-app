@@ -10,7 +10,7 @@ stage('Compile the SourceCode')
 def mvnHome = tool name: 'MVN3', type: 'maven'
 def mvnCMD="${mvnHome}/bin/mvn"
   dir("/var/lib/jenkins/workspace/Docker Job/examples/feed-combiner-java8-webapp") {
-    sh "${mvnCMD} clean install"
+    sh "${mvnCMD}  -Dmaven.test.skip=true clean install"
 }
 
 }
