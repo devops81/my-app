@@ -21,7 +21,7 @@ def mvnHome = tool name: 'MVN3', type: 'maven'
 
 withSonarQubeEnv('SONARQUBESERVER') {
  dir("/var/lib/jenkins/workspace/FOLDER3/docker-app/examples") {
-sh "${mvnHome}/bin/mvn sonar:sonar"
+sh "${mvnHome}/bin/mvn clean verify sonar:sonar"
  }
 }
 
