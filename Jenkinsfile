@@ -36,7 +36,7 @@ sh 'sudo docker login -u devops81 -p Qw32k12345'
 sh 'sudo docker push devops81/demoapp:2.0.0'
 }
 stage('Run container on the Dev server') {
-sh 'sudo docker run -p 7070:8080 -d devops81/demoapp:2.0.0'
+sh 'sudo docker run -p 8080:8080 -d devops81/demoapp:2.0.0'
   
 }
 }
