@@ -1,4 +1,4 @@
-node('172-31-20-26') {
+node('172.31.20.222') {
 
 stage('SCM CHECKOUT') 
   {
