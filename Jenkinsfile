@@ -1,4 +1,4 @@
-node('172.31.20.222') {
+node('Linux-Java-Slave') {
 
 stage('SCM CHECKOUT') 
   {
