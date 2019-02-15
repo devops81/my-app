@@ -20,7 +20,7 @@ def mvnCMD="${mvnHome}/bin/mvn"
 def mvnHome = tool name: 'MVN3', type: 'maven'
 
 withSonarQubeEnv('SONARQUBESERVER') {
- dir("/home/jenkins/node/workspace/docker-app/examples/feed-combiner-java8-webappp") {
+ dir("/home/jenkins/node/workspace/docker-app/examples/feed-combiner-java8-webapp") {
 sh "${mvnHome}/bin/mvn clean verify sonar:sonar"
  }
 }
