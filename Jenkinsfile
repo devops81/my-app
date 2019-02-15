@@ -9,7 +9,7 @@ stage('Compile the SourceCode')
 {
 def mvnHome = tool name: 'MVN3', type: 'maven'
 def mvnCMD="${mvnHome}/bin/mvn"
-  dir("/home/jenkins/workspace/docker-app/examples/feed-combiner-java8-webapp") {
+  dir("/home/jenkins/node/workspace/docker-app/examples/feed-combiner-java8-webapp") {
     sh "${mvnCMD}  -Dmaven.test.skip=true clean install"
 }
   
@@ -20,7 +20,7 @@ def mvnCMD="${mvnHome}/bin/mvn"
 def mvnHome = tool name: 'MVN3', type: 'maven'
 
 withSonarQubeEnv('SONARQUBESERVER') {
- dir("/home/jenkins/workspace/FOLDER3/docker-app/examples/feed-combiner-java8-webapp") {
+ dir("/home/jenkins/node/workspace/docker-app/examples/feed-combiner-java8-webappp") {
 sh "${mvnHome}/bin/mvn clean verify sonar:sonar"
  }
 }
