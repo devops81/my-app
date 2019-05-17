@@ -8,7 +8,7 @@ node{
       sh "${mvnHome}/bin/mvn package"
    }
    stage('Email Notification'){
-      emailext body: 'Please go to ${BUILD_URL} and verify the build', subject: 'Job \'${JOB_NAME}\' (${BUILD_NUMBER})', to: 'devops81@gmail.com'
+      emailext body: Please go to ${BUILD_URL} and verify the build', subject: 'Job \'${JOB_NAME}\' (${BUILD_NUMBER})', to: 'devops81@gmail.com'
    }
   
 }
