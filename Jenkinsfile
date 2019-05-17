@@ -1,23 +1,14 @@
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/javahometech/my-app'
+     checkout([$class: 'GitSCM', branches: [[name: '*/feature-1']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/devops81/my-app.git']]])
    }
    stage('Compile-Package'){
       // Get maven home path
-      def mvnHome =  tool name: 'maven-3', type: 'maven'   
+      def mvnHome =  tool name: 'Maven3', type: 'maven'   
       sh "${mvnHome}/bin/mvn package"
    }
    stage('Email Notification'){
-      mail bcc: '', body: '''Hi Welcome to jenkins email alerts
-      Thanks
-      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'hari.kammana@gmail.com'
+      emailext body: 'Please go to ${BUILD_URL} and verify the build', subject: 'Job \'${JOB_NAME}\' (${BUILD_NUMBER})', to: 'devops81@gmail.com'
    }
-   stage('Slack Notification'){
-       slackSend baseUrl: 'https://hooks.slack.com/services/',
-       channel: '#jenkins-pipeline-demo',
-       color: 'good', 
-       message: 'Welcome to Jenkins, Slack!', 
-       teamDomain: 'javahomecloud',
-       tokenCredentialId: 'slack-demo'
-   }
+  
 }
