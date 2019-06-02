@@ -9,7 +9,7 @@ stage('SCM Checkout')
           
 stage('Build the MVN project')
 {
-def mvnHome = tool name: 'MVN3', type: 'maven'
+def mvnHome = tool name: 'Maven3', type: 'maven'
 sh "${mvnHome}/bin/mvn package"
 }
 
