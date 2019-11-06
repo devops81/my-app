@@ -2,7 +2,7 @@ node( 'master') {
 
 stage('SCM CHECKOUT') 
   {
-git (url: 'https://github.com/devops81/DevOps-Demo.git', branch: 'Development')
+git (url: 'https://github.com/devops81/my-app.git', branch: 'DockerExample')
   }
 
 stage('Compile the SourceCode')
