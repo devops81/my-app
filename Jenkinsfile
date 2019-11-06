@@ -2,30 +2,20 @@ node( 'master') {
 
 stage('SCM CHECKOUT') 
   {
-git (url: 'https://devops81@bitbucket.org/devops81/demorepo.git', branch: 'Demo_Branch')
+git (url: 'https://github.com/devops81/DevOps-Demo.git', branch: 'Development')
   }
 
 stage('Compile the SourceCode')
 {
 def mvnHome = tool name: 'MVN3', type: 'maven'
 def mvnCMD="${mvnHome}/bin/mvn"
-  dir("/home/jenkins/node/workspace/docker-app/examples/feed-combiner-java8-webapp") {
+  dir("/var/lib/jenkins/workspace/Pipeline-Example/examples/feed-combiner-java8-webapp") {
     sh "${mvnCMD}  -Dmaven.test.skip=true clean install"
 }
   
 
 }
-  stage('SonarQub Analysis') {
 
-def mvnHome = tool name: 'MVN3', type: 'maven'
-
-withSonarQubeEnv('SONARQUBESERVER') {
- dir("/home/jenkins/node/workspace/docker-app/examples/feed-combiner-java8-webapp") {
-sh "${mvnHome}/bin/mvn clean verify sonar:sonar"
- }
-}
-
-}
 stage('Build docker image')
 {
 
