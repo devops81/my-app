@@ -19,7 +19,7 @@ def mvnCMD="${mvnHome}/bin/mvn"
 stage('Build docker image')
 {
 
-sh 'sudo  docker build -t devops81/demoapp:2.0.0 .'
+sh 'docker build -t devops81/demoapp:2.0.0 .'
 }
 stage('Docker Push Image') {
 sh 'sudo docker login -u devops81 -p Qw32k12345'
