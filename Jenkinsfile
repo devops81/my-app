@@ -1,4 +1,4 @@
-node( 'devops814') {
+node( 'master') {
 
 stage('SCM CHECKOUT') 
   {
