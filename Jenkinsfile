@@ -22,7 +22,7 @@ stage('Build docker image')
 sh 'docker build -t devops81/demoapp:2.0.0 .'
 }
 stage('Docker Push Image') {
-sh 'sudo docker login -u devops81 -p Qw32k12345'
+sh 'sudo docker login -u devops81 -p Listen@1234'
 sh 'sudo docker push devops81/demoapp:2.0.0'
 }
 stage('Run container on the Dev server') {
