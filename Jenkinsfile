@@ -26,7 +26,7 @@ sh 'docker login -u devops81 -p Listen@1234'
 sh 'docker push devops81/demoapp:2.0.0'
 }
 stage('Run container on the Dev server') {
-sh 'sudo docker run -p 8081:8080 -d devops81/demoapp:2.0.0'
+sh 'docker run -p 8081:8080 -d devops81/demoapp:2.0.0'
   
 }
 }
