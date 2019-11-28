@@ -7,7 +7,7 @@ git (url: 'https://github.com/devops81/my-app.git', branch: 'DockerExample')
 
 stage('Compile the SourceCode')
 {
-def mvnHome = tool name: 'MavenHome', type: 'maven'
+def mvnHome = tool name: 'Maven3', type: 'maven'
 def mvnCMD="${mvnHome}/bin/mvn"
   dir("/var/lib/jenkins/workspace/Pipeline-Example") {
     sh "${mvnCMD}  -Dmaven.test.skip=true clean install"
