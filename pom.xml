@@ -4,9 +4,8 @@
 	<groupId>in.javahome</groupId>
 	<artifactId>myweb</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.3</version>
+	<version>0.0.1</version>
 	<name>my-app</name>
-
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
@@ -14,7 +13,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
-			<!-- <scope>provided</scope> -->
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -24,17 +23,6 @@
 		</dependency>
 	
 	</dependencies>
-	<distributionManagement>
-		 <snapshotRepository>
-		    <id>nexus</id>
-		    <url>http://172.31.17.173:8081/repository/maven-snapshots/</url>
-		 </snapshotRepository>
-		
-		<repository>
-		    <id>nexus</id>
-		    <url>http://172.31.17.173:8081/repository/maven-releases/</url>
-		</repository>
-  	</distributionManagement>
 	
 <build>
     <plugins>
@@ -48,7 +36,7 @@
             </configuration>
         </plugin>
 	<plugin>
-            <groupId>org.apache.maven.plugins</groupId>
+            <groupId>orgg.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <version>2.19</version>
         </plugin>
