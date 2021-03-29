@@ -14,7 +14,7 @@ sh "${mvnHome}/bin/mvn package"
 }
 stage('Build Docker Image')
 {
-sh 'docker build -t devops81/my-app:2.1.2 .'
+sh 'docker build -t devops81/my-app:${Build_Number} .'
 }
 
 stage('Push docker image') {
